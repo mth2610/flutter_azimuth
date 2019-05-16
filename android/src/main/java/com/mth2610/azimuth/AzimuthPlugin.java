@@ -66,8 +66,9 @@ public class AzimuthPlugin implements EventChannel.StreamHandler {
         }
 
         if (SensorManager.getRotationMatrix( rMat, iMat, gData, mData )){
-          azimuth = (SensorManager.getOrientation( rMat, orientation )[0]+2*3.14159265359f)/2*3.14159265359f;
-          events.success(azimuth);
+          //azimuth = (int) ( Math.toDegrees( SensorManager.getOrientation( rMat, orientation )[0] ) + 360 ) % 360;
+            azimuth = (SensorManager.getOrientation( rMat, orientation )[0]+2*3.14159265359f)%(2*3.14159265359f);
+            events.success(azimuth);
         }
       }
     };
