@@ -30,7 +30,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   StreamSubscription<dynamic> azimuthStream; 
-  int azimuthValue;
+  double azimuthValue;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

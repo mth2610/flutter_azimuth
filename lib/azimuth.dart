@@ -6,7 +6,6 @@ const EventChannel _azimuthChannel = EventChannel('plugins.flutter.io/sensors/az
 class AzimuthEvent {
   AzimuthEvent(this.azimuth);
 
-  /// Acceleration force along the x axis (including gravity) measured in m/s^2.
   final double azimuth;
   @override
   String toString() => 'azimuth: $azimuth';
@@ -17,7 +16,6 @@ AzimuthEvent _toAzimuthEvent(double value) {
 }
 
 Stream<AzimuthEvent> _azimuthEvents;
-/// A broadcast stream of events from the device accelerometer.
 Stream<AzimuthEvent> get azimuthEvents {
   if (_azimuthEvents == null) {
     _azimuthEvents = _azimuthChannel
