@@ -66,7 +66,7 @@ public class AzimuthPlugin implements EventChannel.StreamHandler {
         }
 
         if (SensorManager.getRotationMatrix( rMat, iMat, gData, mData )){
-          azimuth = SensorManager.getOrientation( rMat, orientation )[0];
+          azimuth = SensorManager.getOrientation( rMat, orientation )[0]+2*3.14159265359f;
           events.success(azimuth);
         }
       }
