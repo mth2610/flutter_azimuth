@@ -7,12 +7,12 @@ class AzimuthEvent {
   AzimuthEvent(this.azimuth);
 
   /// Acceleration force along the x axis (including gravity) measured in m/s^2.
-  final int azimuth;
+  final double azimuth;
   @override
   String toString() => 'azimuth: $azimuth';
 }
 
-AzimuthEvent _toAzimuthEvent(int value) {
+AzimuthEvent _toAzimuthEvent(double value) {
   return AzimuthEvent(value);
 }
 

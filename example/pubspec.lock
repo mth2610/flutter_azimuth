@@ -88,6 +88,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.2"
+  share:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: HEAD
+      resolved-ref: "8e39760a0c6ee80335a5980d7582782ea2f9fdc3"
+      url: "https://github.com/mth2610/share.git"
+    source: git
+    version: "0.6.0+1"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -151,3 +160,4 @@ packages:
     version: "2.0.8"
 sdks:
   dart: ">=2.2.0 <3.0.0"
+  flutter: ">=0.1.4 <2.0.0"

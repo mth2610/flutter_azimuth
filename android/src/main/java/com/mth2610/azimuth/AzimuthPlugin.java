@@ -48,7 +48,7 @@ public class AzimuthPlugin implements EventChannel.StreamHandler {
       float[] rMat = new float[9];
       float[] iMat = new float[9];
       float[] orientation = new float[3];
-      int azimuth;
+      float azimuth;
       @Override
       public void onAccuracyChanged(Sensor sensor, int accuracy) {}
 
@@ -66,7 +66,7 @@ public class AzimuthPlugin implements EventChannel.StreamHandler {
         }
 
         if (SensorManager.getRotationMatrix( rMat, iMat, gData, mData )){
-          azimuth = (int) ( Math.toDegrees( SensorManager.getOrientation( rMat, orientation )[0] ) + 360 ) % 360;
+          azimuth = SensorManager.getOrientation( rMat, orientation )[0];
           events.success(azimuth);
         }
       }
