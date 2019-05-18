@@ -49,12 +49,14 @@ public class AzimuthPlugin implements EventChannel.StreamHandler {
       float[] iMat = new float[9];
       float[] orientation = new float[3];
       float azimuth;
+      float magnitude;
       @Override
       public void onAccuracyChanged(Sensor sensor, int accuracy) {}
 
       @Override
       public void onSensorChanged(SensorEvent event) {
-        float[] data;
+        float[] outPutValues = new float[2];
+
         switch ( event.sensor.getType() ) {
           case Sensor.TYPE_ACCELEROMETER:
             gData = event.values.clone();
@@ -68,7 +70,10 @@ public class AzimuthPlugin implements EventChannel.StreamHandler {
         if (SensorManager.getRotationMatrix( rMat, iMat, gData, mData )){
           //azimuth = (int) ( Math.toDegrees( SensorManager.getOrientation( rMat, orientation )[0] ) + 360 ) % 360;
             azimuth = (SensorManager.getOrientation( rMat, orientation )[0]+2*3.14159265359f)%(2*3.14159265359f);
-            events.success(azimuth);
+            magnitude = (float) Math.sqrt((mData[0] * mData[0]) + (mData[1] * mData[1]) + (mData[2] * mData[2]));
+            outPutValues[0] = azimuth;
+            outPutValues[1] = magnitude;
+            events.success(outPutValues);
         }
       }
     };
