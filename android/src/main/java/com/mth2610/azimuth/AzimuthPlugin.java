@@ -52,11 +52,6 @@ public class AzimuthPlugin implements EventChannel.StreamHandler {
       double magnitude;
 
       @Override
-      public void onCancel(Object arguments) {
-        sensorManager.unregisterListener(sensorEventListener);
-      }
-
-      @Override
       public void onAccuracyChanged(Sensor sensor, int accuracy) {}
 
       @Override
