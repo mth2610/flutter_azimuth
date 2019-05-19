@@ -50,6 +50,12 @@ public class AzimuthPlugin implements EventChannel.StreamHandler {
       float[] orientation = new float[3];
       double azimuth;
       double magnitude;
+
+      @Override
+      public void onCancel(Object arguments) {
+        sensorManager.unregisterListener(sensorEventListener);
+      }
+
       @Override
       public void onAccuracyChanged(Sensor sensor, int accuracy) {}
 
